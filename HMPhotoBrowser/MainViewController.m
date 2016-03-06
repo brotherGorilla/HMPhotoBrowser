@@ -31,6 +31,8 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
     
     _tableView.dataSource = self;
     [_tableView registerClass:[HMPhotoCell class] forCellReuseIdentifier:DemoCellIdentifier];
+    _tableView.estimatedRowHeight = 200;
+    _tableView.rowHeight = UITableViewAutomaticDimension;
     
     // 2. 准备数据
     NSMutableArray *arrayM = [NSMutableArray array];
