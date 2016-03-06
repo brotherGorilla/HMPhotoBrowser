@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "HMPhotoUrls.h"
+#import "HMPhotoCell.h"
 
 #define kMaxDemoCount 9
 NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
@@ -29,7 +30,7 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
     [self.view addSubview:_tableView];
     
     _tableView.dataSource = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:DemoCellIdentifier];
+    [_tableView registerClass:[HMPhotoCell class] forCellReuseIdentifier:DemoCellIdentifier];
     
     // 2. 准备数据
     NSMutableArray *arrayM = [NSMutableArray array];
@@ -51,9 +52,9 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DemoCellIdentifier forIndexPath:indexPath];
+    HMPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:DemoCellIdentifier forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+    cell.urls = _photoUrls[indexPath.row];
     
     return cell;
 }
