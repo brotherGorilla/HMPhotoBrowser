@@ -8,6 +8,7 @@
 
 #import "HMPhotoCell.h"
 @import Masonry;
+#import "HMPhotoUrls.h"
 
 /// 图片 Cell 布局
 typedef struct HMPhotoCellLayout {
@@ -25,10 +26,13 @@ typedef struct HMPhotoCellLayout {
 }
 
 #pragma mark - 设置数据
-- (void)setUrls:(HMPhotoUrls *)urls {
-    _urls = urls;
+- (void)setPhotoUrls:(HMPhotoUrls *)photoUrls {
+    _photoUrls = photoUrls;
     
-    NSLog(@"%@", _urls);
+    CGSize pictureViewSize = [self pictureViewSizeWithCount:photoUrls.urls.count];
+    [_pictureView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(pictureViewSize.height);
+    }];
 }
 
 #pragma mark - 构造函数
@@ -38,6 +42,18 @@ typedef struct HMPhotoCellLayout {
         [self prepareUI];
     }
     return self;
+}
+
+#pragma mark - 私有函数
+- (CGSize)pictureViewSizeWithCount:(NSInteger)count {
+    if (count == 0) {
+        return CGSizeZero;
+    }
+    
+    NSInteger row = (count - 1) / _layout.count + 1;
+    CGFloat height = (row - 1) * _layout.itemMargin + row * _layout.itemSize.height;
+    
+    return CGSizeMake(_layout.itemSize.width, height);
 }
 
 #pragma mark - 设置界面
@@ -56,8 +72,8 @@ typedef struct HMPhotoCellLayout {
     [_pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_layout.margin);
         make.leading.mas_equalTo(_layout.margin);
-        make.trailing.mas_equalTo(-_layout.margin);
         
+        make.width.mas_equalTo(_layout.viewWidth);
         make.height.mas_equalTo(_layout.viewWidth);
     }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,7 +107,7 @@ typedef struct HMPhotoCellLayout {
         // 2. 设置图像视图位置
         NSInteger col = i % _layout.count;
         NSInteger row = i / _layout.count;
-
+        
         iv.frame = CGRectOffset(rect, col * step, row * step);
     }
 }

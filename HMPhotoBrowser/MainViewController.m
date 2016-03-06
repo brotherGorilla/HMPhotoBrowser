@@ -19,7 +19,7 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 @implementation MainViewController {
     UITableView *_tableView;
-    NSArray <HMPhotoUrls *> *_photoUrls;
+    NSArray <HMPhotoUrls *> *_photoUrlsList;
 }
 
 - (void)viewDidLoad {
@@ -39,7 +39,7 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
     for (NSInteger i = 0; i < kMaxDemoCount; i++) {
         [arrayM addObject:[HMPhotoUrls photoUrlsWithCount:i + 1]];
     }
-    _photoUrls = arrayM.copy;
+    _photoUrlsList = arrayM.copy;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,14 +49,14 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _photoUrls.count;
+    return _photoUrlsList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     HMPhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:DemoCellIdentifier forIndexPath:indexPath];
     
-    cell.urls = _photoUrls[indexPath.row];
+    cell.photoUrls = _photoUrlsList[indexPath.row];
     
     return cell;
 }

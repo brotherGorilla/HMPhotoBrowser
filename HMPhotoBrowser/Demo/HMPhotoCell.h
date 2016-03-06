@@ -13,6 +13,6 @@
 @interface HMPhotoCell : UITableViewCell
 
 /// 配图视图数组
-@property (nullable, nonatomic) HMPhotoUrls *urls;
+@property (nullable, nonatomic) HMPhotoUrls *photoUrls;
 
 @end
