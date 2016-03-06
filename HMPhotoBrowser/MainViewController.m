@@ -10,7 +10,6 @@
 #import "HMPhotoUrls.h"
 #import "HMPhotoCell.h"
 
-#define kMaxDemoCount 9
 NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 @interface MainViewController () <UITableViewDataSource>
@@ -36,7 +35,7 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
     
     // 2. 准备数据
     NSMutableArray *arrayM = [NSMutableArray array];
-    for (NSInteger i = 0; i < kMaxDemoCount; i++) {
+    for (NSInteger i = 0; i < 9; i++) {
         [arrayM addObject:[HMPhotoUrls photoUrlsWithCount:i + 1]];
     }
     _photoUrlsList = arrayM.copy;

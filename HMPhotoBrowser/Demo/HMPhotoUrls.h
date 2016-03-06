@@ -12,7 +12,7 @@
 @interface HMPhotoUrls : NSObject
 
 /// 配图 URL 数组
-@property (nonatomic, nonnull) NSMutableArray <NSString *> *urls;
+@property (nonatomic, nonnull) NSMutableArray <NSURL *> *urls;
 
 /// 根据数量返回配图 URL 数组模型
 ///

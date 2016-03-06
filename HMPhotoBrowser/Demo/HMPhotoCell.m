@@ -33,6 +33,25 @@ typedef struct HMPhotoCellLayout {
     [_pictureView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(pictureViewSize.height);
     }];
+    
+    for (UIView *v in _pictureView.subviews) {
+        v.hidden = YES;
+    }
+    
+    NSInteger index = 0;
+    for (NSURL *url in photoUrls.urls) {
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        UIImageView *iv = _pictureView.subviews[index++];
+        iv.image = image;
+        
+        iv.hidden = NO;
+        
+        if (index == 2 && photoUrls.urls.count == 4) {
+            index++;
+        }
+    }
 }
 
 #pragma mark - 构造函数
@@ -101,6 +120,8 @@ typedef struct HMPhotoCellLayout {
         // 1. 添加图像视图
         UIImageView *iv = [[UIImageView alloc] init];
         iv.backgroundColor = [UIColor lightGrayColor];
+        iv.clipsToBounds = YES;
+        iv.contentMode = UIViewContentModeScaleAspectFill;
         
         [_pictureView addSubview:iv];
         
