@@ -18,6 +18,7 @@
 		C2767B061C8CA2BD00103557 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2767AFD1C8CA2BD00103557 /* 8.jpg */; };
 		C2767B071C8CA2BD00103557 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2767AFE1C8CA2BD00103557 /* 9.jpg */; };
 		C2767B0E1C8CA33000103557 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2767B0D1C8CA33000103557 /* MainViewController.m */; };
+		C2767B151C8CA62F00103557 /* HMPhotoUrls.m in Sources */ = {isa = PBXBuildFile; fileRef = C2767B141C8CA62F00103557 /* HMPhotoUrls.m */; };
 		C2D471501C8C6B5A00E84457 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4714F1C8C6B5A00E84457 /* main.m */; };
 		C2D471531C8C6B5A00E84457 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D471521C8C6B5A00E84457 /* AppDelegate.m */; };
 		C2D471591C8C6B5A00E84457 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D471571C8C6B5A00E84457 /* Main.storyboard */; };
@@ -39,6 +40,8 @@
 		C2767AFE1C8CA2BD00103557 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 		C2767B0C1C8CA33000103557 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C2767B0D1C8CA33000103557 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C2767B131C8CA62F00103557 /* HMPhotoUrls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoUrls.h; sourceTree = "<group>"; };
+		C2767B141C8CA62F00103557 /* HMPhotoUrls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoUrls.m; sourceTree = "<group>"; };
 		C2D4714B1C8C6B5A00E84457 /* HMPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D4714F1C8C6B5A00E84457 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2D471511C8C6B5A00E84457 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +88,15 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		C2767B0F1C8CA5D900103557 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				C2767B131C8CA62F00103557 /* HMPhotoUrls.h */,
+				C2767B141C8CA62F00103557 /* HMPhotoUrls.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		C2D471421C8C6B5A00E84457 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				C2767ADB1C8C98CB00103557 /* PhotoBrowser */,
+				C2767B0F1C8CA5D900103557 /* Demo */,
 				C2D471511C8C6B5A00E84457 /* AppDelegate.h */,
 				C2D471521C8C6B5A00E84457 /* AppDelegate.m */,
 				C2767B0C1C8CA33000103557 /* MainViewController.h */,
@@ -153,6 +166,7 @@
 		C2D471431C8C6B5A00E84457 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = HM;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = itcast;
 				TargetAttributes = {
@@ -207,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2767AE11C8C991500103557 /* HMPhotoBrowserController.m in Sources */,
+				C2767B151C8CA62F00103557 /* HMPhotoUrls.m in Sources */,
 				C2D471531C8C6B5A00E84457 /* AppDelegate.m in Sources */,
 				C2767B0E1C8CA33000103557 /* MainViewController.m in Sources */,
 				C2D471501C8C6B5A00E84457 /* main.m in Sources */,

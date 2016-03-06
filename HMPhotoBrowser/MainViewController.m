@@ -7,7 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import "HMPhotoUrls.h"
 
+#define kMaxDemoCount 9
 NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 @interface MainViewController () <UITableViewDataSource>
@@ -16,16 +18,25 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 @implementation MainViewController {
     UITableView *_tableView;
+    NSArray <HMPhotoUrls *> *_photoUrls;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // 1. 准备表格视图
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     
     _tableView.dataSource = self;
     [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:DemoCellIdentifier];
+    
+    // 2. 准备数据
+    NSMutableArray *arrayM = [NSMutableArray array];
+    for (NSInteger i = 0; i < kMaxDemoCount; i++) {
+        [arrayM addObject:[HMPhotoUrls photoUrlsWithCount:i + 1]];
+    }
+    _photoUrls = arrayM.copy;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +46,7 @@ NSString *const DemoCellIdentifier = @"DemoCellIdentifier";
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 9;
+    return _photoUrls.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
