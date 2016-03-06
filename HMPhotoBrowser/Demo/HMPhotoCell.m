@@ -68,16 +68,42 @@ typedef struct HMPhotoCellLayout {
         make.bottom.equalTo(_pictureView).offset(_layout.margin);
     }];
     
-    _pictureView.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+    // 4. 准备图像视图
+    [self prepareImageViews];
+}
+
+- (void)prepareImageViews {
+    _pictureView.backgroundColor = self.backgroundColor;
+    _pictureView.clipsToBounds = YES;
+    
+    NSInteger count = _layout.count * _layout.count;
+    CGRect rect = CGRectMake(0, 0, _layout.itemSize.width, _layout.itemSize.height);
+    CGFloat step = _layout.itemMargin + _layout.itemSize.width;
+    
+    for (NSInteger i = 0; i < count; i++) {
+        
+        // 1. 添加图像视图
+        UIImageView *iv = [[UIImageView alloc] init];
+        iv.backgroundColor = [UIColor lightGrayColor];
+        
+        [_pictureView addSubview:iv];
+        
+        // 2. 设置图像视图位置
+        NSInteger col = i % _layout.count;
+        NSInteger row = i / _layout.count;
+
+        iv.frame = CGRectOffset(rect, col * step, row * step);
+    }
 }
 
 - (void)prepareLayout {
-    _layout.itemSize = CGSizeMake(90, 90);
     _layout.margin = 12;
     _layout.itemMargin = 2;
     _layout.count = 3;
     
     _layout.viewWidth = [UIScreen mainScreen].bounds.size.width - (_layout.count - 1) * _layout.margin;
+    CGFloat width = (_layout.viewWidth - (_layout.count - 1) * _layout.itemMargin) / _layout.count;
+    _layout.itemSize = CGSizeMake(width, width);
 }
 
 @end
