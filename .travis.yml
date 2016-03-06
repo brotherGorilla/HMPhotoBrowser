@@ -1,0 +1,3 @@
+language: objective-c
+xcode-project: HMPhotoBrowser.xcodeproj
+xcode_scheme: HMPhotoBrowser
