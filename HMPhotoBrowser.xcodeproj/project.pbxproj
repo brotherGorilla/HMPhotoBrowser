@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2767AE11C8C991500103557 /* HMPhotoBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2767AE01C8C991500103557 /* HMPhotoBrowserController.m */; };
 		C2D471501C8C6B5A00E84457 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D4714F1C8C6B5A00E84457 /* main.m */; };
 		C2D471531C8C6B5A00E84457 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D471521C8C6B5A00E84457 /* AppDelegate.m */; };
 		C2D471561C8C6B5A00E84457 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D471551C8C6B5A00E84457 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2767ADF1C8C991500103557 /* HMPhotoBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPhotoBrowserController.h; sourceTree = "<group>"; };
+		C2767AE01C8C991500103557 /* HMPhotoBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPhotoBrowserController.m; sourceTree = "<group>"; };
 		C2D4714B1C8C6B5A00E84457 /* HMPhotoBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMPhotoBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D4714F1C8C6B5A00E84457 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2D471511C8C6B5A00E84457 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2767ADB1C8C98CB00103557 /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				C2767ADF1C8C991500103557 /* HMPhotoBrowserController.h */,
+				C2767AE01C8C991500103557 /* HMPhotoBrowserController.m */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
 		C2D471421C8C6B5A00E84457 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		C2D4714D1C8C6B5A00E84457 /* HMPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				C2767ADB1C8C98CB00103557 /* PhotoBrowser */,
 				C2D471511C8C6B5A00E84457 /* AppDelegate.h */,
 				C2D471521C8C6B5A00E84457 /* AppDelegate.m */,
 				C2D471541C8C6B5A00E84457 /* ViewController.h */,
@@ -149,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2767AE11C8C991500103557 /* HMPhotoBrowserController.m in Sources */,
 				C2D471561C8C6B5A00E84457 /* ViewController.m in Sources */,
 				C2D471531C8C6B5A00E84457 /* AppDelegate.m in Sources */,
 				C2D471501C8C6B5A00E84457 /* main.m in Sources */,
@@ -298,6 +312,7 @@
 				C2D471641C8C6B5A00E84457 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
